@@ -1,0 +1,92 @@
+/* admin.css */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --bg-color: #f8f9fa;
+    --table-header-bg: #343a40;
+    --white-color: #fff;
+    --border-color: #dee2e6;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    color: #212529;
+}
+
+.admin-container {
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.admin-container > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+thead tr {
+    background-color: var(--table-header-bg);
+    color: var(--white-color);
+    text-align: left;
+    font-weight: 500;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+td.message-cell {
+    max-width: 250px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.no-data {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    padding: 20px;
+}

@@ -1,0 +1,306 @@
+:root {
+    --primary-color: #ffc107; /* Vàng */
+    --dark-color: #1a1a1a;
+    --light-color: #f4f4f4;
+    --gray-color: #333;
+    --white-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero h1 span {
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: var(--dark-color);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.cta-button:hover {
+    background: var(--white-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Why Us Section --- */
+.why-us {
+    padding: 6rem 0;
+    background: var(--gray-color);
+}
+
+.why-us .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.why-us-content {
+    flex: 1;
+}
+
+.why-us-content .title-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.why-us-content .letter {
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.why-us-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.why-us-content p {
+    font-size: 1.1rem;
+    color: #ccc;
+    text-align: justify;
+}
+
+.why-us-image {
+    flex: 1;
+}
+
+.why-us-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Services Section --- */
+.services {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-item {
+    background: var(--gray-color);
+    padding: 2.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.service-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    filter: invert(75%) sepia(89%) saturate(1001%) hue-rotate(359deg) brightness(102%) contrast(102%); /* Colorize icon to primary color */
+}
+
+.service-item h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-item p {
+    color: #ccc;
+    text-align: justify;
+}
+
+/* --- Precision Section --- */
+.precision {
+    padding: 6rem 0;
+    background: var(--gray-color);
+}
+
+.precision .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.precision-image {
+    flex: 1;
+}
+
+.precision-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.precision-content {
+    flex: 1;
+}
+
+.precision-content h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.precision-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.precision-content p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+/* --- Performance Section --- */
+.performance {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.performance h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.performance p {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    font-size: 1.1rem;
+    color: #ccc;
+    text-align: justify;
+}
+
+.performance-image {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.performance-image img {
+    width: 100%;
+    display: block;
+}
+
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 3rem; }
+    .hero p { font-size: 1.2rem; }
+    .why-us .container, .precision .container { flex-direction: column; }
+    .precision .container { flex-direction: column-reverse; }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .why-us, .services, .precision, .performance { padding: 4rem 0; }
+    .container { padding: 0 1rem; }
+}
+
+/* Hiệu ứng bông tuyết */
+.snowflake {
+    color: #fff;
+    font-size: 1em;
+    position: fixed;
+    top: -5%;
+    z-index: 1000; /* Đảm bảo bông tuyết ở trên các phần tử khác */
+    user-select: none;
+    cursor: default;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}

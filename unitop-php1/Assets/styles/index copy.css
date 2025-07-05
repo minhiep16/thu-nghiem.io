@@ -1,0 +1,42 @@
+/* 🎨 CSS cho các nút mũi tên điều hướng */
+
+.navigation-arrows {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    z-index: 999; /* Đảm bảo nút luôn nổi lên trên */
+    pointer-events: none; /* Cho phép click xuyên qua vùng trống */
+}
+
+.arrow {
+    pointer-events: auto; /* Cho phép click vào nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+
+.left-arrow {
+    margin-left: 20px;
+}
+
+.right-arrow {
+    margin-right: 20px;
+}

@@ -1,0 +1,50 @@
+/* ../unitop-php/Assets/styles/contact-bar.css */
+
+.contact-bar {
+    position: fixed;
+    top: 70%;
+    right: 10px; /* Giảm khoảng cách với cạnh màn hình */
+    transform: translateY(-50%);
+    background-color: #fbc02d;
+    border-radius: 8px; /* Giảm bo góc */
+    padding: 5px; /* Giảm padding */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Giảm đổ bóng */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Giảm khoảng cách giữa các nút */
+    z-index: 1000;
+}
+
+.contact-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 7px; /* Giảm padding của nút */
+    border: 1px dashed white; /* Giảm độ dày viền */
+    border-radius: 5px; /* Giảm bo góc nút */
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 10px; /* Giảm cỡ chữ */
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: white;
+    color: #d89b0d;
+    transform: scale(1.05);
+}
+
+/* Giảm kích thước icon và khoảng cách */
+.contact-button i {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+/* Giảm kích thước ảnh và khoảng cách */
+.contact-button img {
+    width: 15px;
+    height: 15px;
+    margin-bottom: 3px;
+}

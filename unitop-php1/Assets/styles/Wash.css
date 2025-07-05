@@ -1,0 +1,303 @@
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    max-width: 1620px;
+    /* display: flex;              */
+}
+.banner {
+    width: 100%;
+    height: 300px;
+    background-color: #2d2d2d;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    left: 10%;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 100%);
+    background-size: 100% 20px;
+    z-index: 0;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(to right, #fcc400 0%, #fcc400 10px, transparent 10px, transparent 30px),
+        repeating-linear-gradient(to right, #fcc400 0%, #fcc400 10px, transparent 10px, transparent 30px),
+        repeating-linear-gradient(to right, #fcc400 0%, #fcc400 10px, transparent 10px, transparent 30px);
+    background-size: 100% 1px,
+                   100% 1px,
+                   100% 1px;
+    background-position: 
+        0% calc(25% - 0.5px),
+        0% calc(50% - 0.5px),
+        0% calc(75% - 0.5px);
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.banner-content {
+    text-align: center;
+    color: #ffffff;
+    z-index: 3;
+    position: relative;
+}
+
+.main-title {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    color: #fcc400;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #b0b0b0;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.subtitle span.highlight {
+    color: #fcc400;
+}
+
+.race-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.car-icon {
+    font-size: 2.5em;
+    position: absolute;
+    left: -100px;
+    transition: none; 
+    white-space: nowrap;
+}
+
+.car-color {
+    color: #fcc400;
+}
+
+.plane-color {
+    color: #ffffff;
+}
+
+.shuttle-color {
+    color: #b0b0b0;
+}
+
+.biking-color {
+    color: #fcc400;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    width: 100%;
+    background-color: #212121;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+    width: 80px;
+    height: 80px;
+    background-color: #fcd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: ease 0.2s;
+}
+.card .icon:hover{
+    transform: translateY(-20px);
+}
+.card .icon svg {
+    color: #3e3e3e;
+    width: 40px;
+    height: 40px;
+    transition: ease 0.2s;
+}
+.card .icon svg:hover{
+    width: 200px;
+    height: 200px;
+}
+.card h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #adadad;
+}
+
+.card p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #adadad;
+    margin-bottom: 30px;
+}
+.main-image {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.container2 {
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    width: 100%;
+    background-color: #212121;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container3 {
+    width: 100%;
+    background-color: #212121;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container3 img{
+    border-radius: 20px;
+    margin-right: 20px;
+}
+video{
+    width: 100%;
+}
+.container3 p{
+    font-size: 30px;
+    color: #adadad;
+}
+.container3 button{
+    background-color: #fcc400;
+    color: black;
+    padding: 15px 40px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: bounceHorizontal 1s infinite alternate;
+    margin-top: 20px;
+    font-weight: bold;
+}
+@keyframes moveButton {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(20px); }
+  100% { transform: translateX(0); }
+}
+
+.container3 .card button {
+  animation: moveButton 2s ease-in-out infinite;
+}
+.container3 .card button:hover{
+    background-color: #adadad;
+    color: black;
+}
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.5em;
+    }
+
+    .card p {
+        font-size: 0.9em;
+    }
+}
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card {
+    flex: 1;
+    background-color: #212121;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInLeft 1s ease forwards;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    z-index: 1;
+    animation: shine 1.5s infinite;
+}
+
+.container1 .card:nth-child(1)::before {
+    animation-delay: 0s;
+}
+
+.container1 .card:nth-child(3)::before,
+.container2 .card:nth-child(2)::before {
+    animation-delay: 0.2s;
+}
+
+.container2 .card:nth-child(1)::before,
+.container2 .card:nth-child(3)::before {
+    animation-delay: 0.4s;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

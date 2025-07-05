@@ -1,0 +1,220 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+   
+    min-height: 100vh;
+    margin: 0;
+    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-size: 15px 15px;
+} 
+.content{
+    max-width: 1400px;
+    display: flex;
+    display: center;
+    justify-content: center;
+}
+.booking-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    /* background-color: #fff;  */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+/* Left Side (Info) */
+.info-side {
+    /* margin-top: 100px; */
+    flex-basis: 40%;
+    padding: 50px;
+    /* background-color: #f7f7f7; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+.logo-text h1 {
+    font-size: 60px;
+}
+
+.logo-text h1 {
+   
+    /* font-size: 4rem; */
+    font-weight: 1000;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #333;
+}
+.logo-text .yellow-text {
+    color: #fdda0d; /* A vibrant yellow */
+}
+
+.contact-info {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Right Side (Form) */
+.form-side {
+    
+    flex-basis: 60%;
+    padding: 50px;
+}
+
+.form-side h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.half-width {
+    width: 50%;
+}
+
+/* Form Elements Styling */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Important for padding */
+}
+
+input::placeholder, textarea::placeholder {
+    color: #999;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #fdda0d;
+    box-shadow: 0 0 5px rgba(253, 218, 13, 0.5);
+}
+
+.services-label, .inline-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #333;
+}
+
+.terms-label {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+    .booking-container {
+        flex-direction: column;
+    }
+}
+
+/* Styling cho trạng thái lỗi */
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #e74c3c; /* Màu đỏ cho viền */
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+
+.stripe-bar {
+    height: 20px; 
+    width: 100%;
+    margin-bottom: 20px;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #111,
+        #111 15px,
+        transparent 15px,
+        transparent 30px
+    );
+
+}
+.animated-stripe-bar {
+    background-size: 42.42px 42.42px;
+    animation: scrollStripes 1s linear infinite;
+    
+}
+@keyframes scrollStripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        /* Di chuyển nền đúng bằng kích thước của nó để tạo vòng lặp hoàn hảo */
+        background-position: 42.42px 0;
+    }
+}
+
+/* #js-stripe-bar{
+    height: 50px;
+    
+} */
+.stripe-bar{
+    height: 10px;
+}
+
