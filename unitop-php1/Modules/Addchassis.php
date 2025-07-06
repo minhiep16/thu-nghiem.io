@@ -12,7 +12,6 @@ if (!isset($conn)) {
     }
 }
 
-// Lấy tất cả dữ liệu trước để đảm bảo các chức năng khác có dữ liệu để xử lý
 $chassisItems = [];
 $sql_select_all = "SELECT id, image_url, name, price FROM chassis ORDER BY id DESC";
 $result = $conn->query($sql_select_all);
@@ -24,7 +23,7 @@ if ($result && $result->num_rows > 0) {
 
 // Đường dẫn đến thư mục upload
 define('UPLOAD_DIR_RELATIVE', '../Assets/Uploads/');
-define('UPLOAD_DIR_ABSOLUTE_URL', '/nhom4/../Assets/Uploads/');
+define('UPLOAD_DIR_ABSOLUTE_URL', '/unitop-php1/Assets/Uploads/');
 
 //XỬ LÝ POST (Thêm / Sửa)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

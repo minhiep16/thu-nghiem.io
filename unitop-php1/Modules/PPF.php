@@ -6,7 +6,7 @@ require "../Components/navbar.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CAR CARE</title>
     <link rel="stylesheet" href="../Assets/styles/PPF.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@ require "../Components/navbar.php";
                         PPF hay còn gọi là Paint Protection Film là một lớp keo đặc biệt có vai trò như tấm lá chắn bảo vệ lớp sơn “zin” khỏi những vết xước đáng tiếc và các tác nhân thời tiết.
                     </p>
                     <img src="../Assets/img/PPF4.jpg" alt="">
-                    <button>ĐẶT LỊCH NGAY</button>
+                    <a href="../Modules/login.php"><button>ĐẶT LỊCH NGAY</button></a>
                 </div>
             </div>
         </section>

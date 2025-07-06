@@ -1,5 +1,5 @@
 <?php
-require "../Components/navbar.php";
+require __DIR__ . '/../Components/navbar.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,51 +12,45 @@ require "../Components/navbar.php";
     
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <title>Document</title>
+    <title>CAR CARE</title>
 </head>
 <body>
     <div class="cont">
-        <section class="slider">
-            <div class="slideritems">
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner5.webp" alt="">
-                </div>
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner1.jpg" alt="">
-                </div>
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner2.jpg" alt="">
-                </div>
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner3.webp" alt="">
-                </div>
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner4.jpg" alt="">
-                </div>
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner5.webp" alt="">
-                </div>
-                <div class="slideritem">
-                    <img src="../Assets/img/Banner1.jpg" alt="">
-                </div>
+        <section class="hero-section">
+            <video autoplay muted loop id="background-video">
+                <source src="../Assets/img/Home.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>CAR TUNING</h1>
+                <p class="subtitle">DESIGN | CAR REPAIR | ACCESSORIES | WASH</p>
+                <p class="description">
+                    SỬA, RỬA XE SIÊU CẤP VIP PRO
+                </p>
             </div>
         </section>
 
         <section class="content1">
             <h1 data-aos="fade-up">DỊCH VỤ NỔI BẬT</h1>
-            <div class="Dichvunoibat">
+                <div class="Dichvunoibat">
+                <a href="../Modules/PPF.php">
                 <div class="Dichvunoibat1" data-aos="fade-up" data-aos-delay="100">
-                    <img src="../Assets/img/PPF1.webp" alt="">
+                    <img src="../Assets/img/PPF1.jpg" alt="">
                     <h2>DÁN PPF</h2>
                 </div>
+                </a>
+                <a href="../Modules/Wrap.php">
                 <div class="Dichvunoibat1" data-aos="fade-up" data-aos-delay="200">
-                    <img src="../Assets/img/Wrap1.webp" alt="">
+                    <img src="../Assets/img/Wrap1.jpg" alt="">
                     <h2>WRAP</h2>
                 </div>
+                </a>
+                <a href="../Modules/Wash.php">
                 <div class="Dichvunoibat1" data-aos="fade-up" data-aos-delay="300">
                     <img src="../Assets/img/Wash1.png" alt="">
                     <h2>RỬA XE</h2>
                 </div>
+                </a>
             </div>
         </section>
 
@@ -71,29 +65,40 @@ require "../Components/navbar.php";
                     -Kỹ thuật viên chuyên môn cao, được đào tạo chính quy <br>
                     -Trang thiết bị hiện đại, đảm bảo độ chính xác cao <br>
                     -Thao tác nhanh, gọn, chính xác, đúng tiêu chuẩn <br>
-                    -Không gian khoang dịch vụ sạch sẽ, ngăn nắp​ <br>
+                    -Không gian khoang dịch vụ sạch sẽ, ngăn nắp <br>
                     -Chi phí dịch vụ với chất lượng phù hợp</p>
             </div>
-            <img src="../Assets/img/Vechungtoi.webp" alt="" data-aos="fade-left">
+            <img src="../Assets/img/Vechungtoi.jpg" alt="" data-aos="fade-left">
         </section>
 
-        <section class="hero-section">
-            <video autoplay muted loop id="background-video">
-                <source src="../Assets/img/Home.mp4" type="video/mp4">
-            </video>
-            <div class="overlay"></div>
-            <div class="content">
-                <h1>CAR TUNING</h1>
-                <p class="subtitle">DESIGN | WRAPPING & PAINTING | BODY KIT | INTERIOR</p>
-                <p class="description">
-                    Một ý tưởng "đổi tốt" sẽ giúp xe của bạn nổi bật giữa hàng ngàn chiếc khác. Tứ dáng vẻ, hiệu suất đến từng chi tiết nhỏ đều có thể là điểm nhấn nổi bật của riêng bạn. Ý tưởng không chỉ dừng lại ở khía cạnh tưởng tượng, đôi khi nó đến từ sự đam mê, kinh nghiệm & trải nghiệm. Và ý tưởng giúp cho bạn vượt và khỏi những khuôn mẫu có sẵn.
-                </p>
+        <section class="slider">
+            <div class="slideritems">
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner5.jpg" alt="">
+                </div>
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner1.jpg" alt="">
+                </div>
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner2.jpg" alt="">
+                </div>
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner3.jpg" alt="">
+                </div>
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner4.jpg" alt="">
+                </div>
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner5.jpg" alt="">
+                </div>
+                <div class="slideritem">
+                    <img src="../Assets/img/Banner1.jpg" alt="">
+                </div>
             </div>
         </section>
     </div> 
-
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="../Layouts/Home.js"></script>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
@@ -105,5 +110,5 @@ require "../Components/navbar.php";
 </html>
 
 <?php
-require "../Components/footer.php";
+require __DIR__ . '/../Components/footer.php';
 ?>

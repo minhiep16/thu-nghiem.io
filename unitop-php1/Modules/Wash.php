@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CAR CARE</title>
     <link rel="stylesheet" href="../Assets/Styles/Wash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -80,7 +80,7 @@
             </video>
             <div class="card" data-aos="zoom-in">
                 <p>Dịch vụ rửa xe chuyên nghiệp của chúng tôi mang đến sự chăm sóc toàn diện cho xế yêu của bạn. Từ rửa xe cơ bản đến rửa xe chuyên sâu, chúng tôi sử dụng công nghệ hiện đại và dung dịch chất lượng cao để đảm bảo xe sạch bóng, bền đẹp và luôn như mới. Hãy trải nghiệm sự khác biệt ngay hôm nay!</p>
-                <a href ="../Modules/dat-lich.php" ><button>ĐẶT LỊCH NGAY</button> </a>
+                <a href ="../Modules/login.php" ><button>ĐẶT LỊCH NGAY</button> </a>
             </div>
         </div>
     </div>

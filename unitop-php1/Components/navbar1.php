@@ -329,7 +329,7 @@ $userName = $isLoggedIn ? ($_SESSION['name'] ?? 'User') : '';
     <header class="site-header">
         <div class="container">
             <a href="/unitop-php1/Modules/Home.php" class="header-logo">
-                <img src="/unitop-php1/Assets/img/logo .png" alt="Logo">
+                <img src="unitop-php1/Assets/img/logo .png" alt="Logo">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
@@ -385,7 +385,7 @@ $userName = $isLoggedIn ? ($_SESSION['name'] ?? 'User') : '';
                         </li>
                     <?php else: ?>
                         <li class="login-button">
-                            <a href="login.php">Đăng Nhập</a>
+                            <a href="/unitop-php1/Modules/login.php">Đăng Nhập</a>
                         </li>
                     <?php endif; ?>
                 </ul>

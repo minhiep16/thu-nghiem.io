@@ -1,12 +1,12 @@
 <?php
-require "../Components/footer.php";
+require "../Components/navbar.php";
 ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CAR CARE</title>
     <link rel="stylesheet" href="../Assets/Styles/Wrap.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,6 @@ require "../Components/footer.php";
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-
     <div class="hero-section">
         <img src="../Assets/img/Wrap2.png" alt="" class="hero-image">
         <div class="hero-text">
@@ -59,8 +58,9 @@ require "../Components/footer.php";
             </div>
         </main>
     </div>
-
+    
     <section class="design-section">
+        <div id="dark-particles-bg"></div>
         <div class="design-container">
             <div class="design-column-left" data-aos="fade-right">
                 <h2>DESIGN FIRST</h2>
@@ -71,27 +71,28 @@ require "../Components/footer.php";
                 <p>
                     Cá nhân hóa bằng phương pháp Wrapping vô cùng linh hoạt và phổ biến hiện nay. Bạn có thể khẳng định phong cách & cá tính của riêng mình thông qua các thiết kế, giúp xế yêu của bạn hoàn toàn nổi bật giữa đám đông. Đồng thời cũng là phương pháp bảo vệ lớp sơn gốc một cách hiệu quả.
                 </p>
-                <button>ĐẶT LỊCH NGAY</button>
+                <a href="../Modules/login.php"><button>ĐẶT LỊCH NGAY</button></a>
             </div>
 
             <div class="design-column-right" data-aos="fade-left">
-                <img src="../Assets/img/Wrap3.webp" alt="" class="map-image">
+                <img src="../Assets/img/Wrap3.jpg" alt="" class="map-image">
             </div>
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="../Layouts/Wrap.js"></script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
-        duration: 1000, // Thời gian hiệu ứng (ms)
-        once: true,     // Chỉ chạy hiệu ứng một lần
+        duration: 1000,
+        once: true,
       });
     </script>
 </body>
 </html>
 
 <?php
-require "../Components/navbar.php";
+require "../Components/footer.php";
 ?>

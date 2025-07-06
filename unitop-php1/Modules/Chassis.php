@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dịch Vụ Khung Gầm Chuyên Nghiệp</title>
+    <title>CAR CARE</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +20,9 @@
     <link rel="stylesheet" href="../Assets/Styles/Chassis.css">
 </head>
 <body>
+    <div id="particles-js"></div>
     <div class="hero-section">
-        <img src="../Assets/img/Chassis.webp" alt="Xe thể thao trên đường đèo" class="hero-image">
+        <img src="../Assets/\/img/Chassis.jpg" alt="" class="hero-image">
         <div class="overlay"></div>
         <div class="content">
             <p class="subtitle">DỊCH VỤ</p>
@@ -100,12 +101,13 @@
                 <h2>QUY TRÌNH THỰC HIỆN</h2>
                 <p>Chúng tôi tiến hành kiểm tra tổng thể hệ thống khung gầm bằng máy chuyên dụng...</p>
             </div>
-            <button>ĐẶT LỊCH NGAY</button>
+            <a href="../Modules/login.php"><button>ĐẶT LỊCH NGAY</button></a>
             <div class="info-image">
                 <img src="../Assets/img/Chassis3.jpg" alt="">
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../Layouts/Chassis.js"></script> </body>
 </body>

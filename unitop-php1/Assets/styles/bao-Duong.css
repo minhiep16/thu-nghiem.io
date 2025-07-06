@@ -63,9 +63,9 @@ body {
 }
 
 .cta-button:hover {
-    background: #ffffff;
-    color: #ffd700;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    background: #414141;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 217, 1, 0.5);
 }
 
 section {
@@ -290,11 +290,6 @@ section {
     }
 }
 
-/* =============================================== */
-/* CODE THÊM VÀO CHO ANIMATION NÚT BẤM
-/* =============================================== */
-
-/* Keyframe cho animation đi lên xuống của nút "Khám Phá Dịch Vụ" */
 @keyframes moveButton {
     from {
         transform: translateY(0);
@@ -304,12 +299,10 @@ section {
     }
 }
 
-/* Áp dụng animation 'moveButton' cho nút trong phần hero */
 .hero .cta-button {
     animation: moveButton 1.5s infinite alternate;
 }
 
-/* Keyframe cho animation lắc của nút "Đặt Lịch Ngay" */
 @keyframes shake {
     0%, 100% {
 		transform: translateX(0);
@@ -322,7 +315,26 @@ section {
 	}
 }
 
-/* Áp dụng animation 'shake' cho nút trong phần cta */
 .cta .cta-button {
     animation: shake 1.2s infinite;
+}
+
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+.footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem 0;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    position: relative; 
+    z-index: 1;
 }

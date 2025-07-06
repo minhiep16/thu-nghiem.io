@@ -55,7 +55,7 @@ require "../Components/navbar.php";
     <main>
         <section class="hero-section">
             <div class="container">
-                <h1>WHO WE ARE. WHAT WE DO.</h1>
+                <h1>CHÚNG TÔI LÀM ĐƯỢC GÌ</h1>
                 <div class="hero-content">
                     <div class="hero-text" >
                         
@@ -146,7 +146,6 @@ require "../Components/navbar.php";
                         </div>
                         <div class="member-card-info">
                             <h3 class="member-name">Lê Xuân Trung</h3>
-                            <p class="member-position">Chưa có</p>
                         </div>
                     </div>
 
@@ -161,7 +160,7 @@ require "../Components/navbar.php";
                         </div>
                         <div class="member-card-info">
                             <h3 class="member-name">Lê Đại Nghĩa</h3>
-                            <p class="member-position">Chưa có</p>
+                            
                         </div>
                     </div>
                     
@@ -176,7 +175,7 @@ require "../Components/navbar.php";
                         </div>
                         <div class="member-card-info">
                             <h3 class="member-name">Đặng Phát Đạt</h3>
-                            <p class="member-position">Chưa có</p>
+                            
                         </div>
                     </div>
                     
@@ -191,7 +190,7 @@ require "../Components/navbar.php";
                         </div>
                         <div class="member-card-info">
                             <h3 class="member-name">Nông Hoàng Minh Hiệp</h3>
-                            <p class="member-position">Chưa có</p>
+                        
                         </div>
                     </div>
 
@@ -206,7 +205,7 @@ require "../Components/navbar.php";
                         </div>
                         <div class="member-card-info">
                             <h3 class="member-name">Trịnh Nguyễn Phi Hào</h3>
-                            <p class="member-position">Chưa có</p>
+                            
                         </div>
                     </div>
 

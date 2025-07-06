@@ -1,9 +1,13 @@
+<?php
+    require "../Components/navbar.php";
+    ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyên Sửa Chữa & Nâng Cấp Động Cơ Ô Tô</title>
+    <title>CAR CARE</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
@@ -12,6 +16,8 @@
     <link rel="stylesheet" href="../Assets/styles/suaDongco.css">
 </head>
 <body>
+
+    <div id="particles-js"></div>
 
     <div class="hero" id="home">
         <div class="container" data-aos="fade-in" data-aos-duration="1500">
@@ -86,12 +92,17 @@
         <div class="container">
             <h2 data-aos="fade-up">Sẵn Sàng Trải Nghiệm Dịch Vụ Đỉnh Cao?</h2>
             <p data-aos="fade-up" data-aos-delay="100">Liên hệ với chúng tôi ngay hôm nay để được tư vấn và đặt lịch hẹn.</p>
-            <a href="#" class="cta-button" data-aos="fade-up" data-aos-delay="200">Đặt Lịch Ngay</a>
+            <a href="../Modules/login.php" class="cta-button" data-aos="fade-up" data-aos-delay="200">Đặt Lịch Ngay</a>
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../Layouts/suaDongco.js"></script>
 
 </body>
 </html>
+
+ <?php
+    require "../Components/footer.php";
+    ?>

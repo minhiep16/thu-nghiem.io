@@ -6,19 +6,21 @@ require "../Components/navbar.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Auto - Bảo Dưỡng & Nâng Cấp Siêu Xe</title>
+    <title>CAR CARE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../Assets\styles\bao-Duong.css">
+    <link rel="stylesheet" href="../Assets/styles/bao-Duong.css">
 </head>
 <body>
+    <div id="tsparticles"></div> 
+
     <header class="hero" id="home">
         <div class="hero-content">
-            <h3 data-aos="fade-down">APEX AUTO PERFORMANCE</h3>
+            <h3 data-aos="fade-down">CAR CARE</h3>
             <h1 data-aos="fade-up" data-aos-delay="100">DỊCH VỤ ĐẲNG CẤP <br><span>DÀNH CHO OTÔ</span></h1>
             <a href="#services" class="cta-button" data-aos="fade-up" data-aos-delay="200">Khám Phá Dịch Vụ</a>
         </div>
@@ -27,7 +29,7 @@ require "../Components/navbar.php";
     <section class="intro" id="about">
         <div class="container">
             <div class="intro-image" data-aos="zoom-in-right">
-                <img src="..\Assets\img\toandien5.jpg" alt="">
+                <img src="../Assets/img/toandien5.jpg" alt="">
             </div>
             <div class="intro-content" data-aos="fade-left">
                 <h2>ĐỘ CHÍNH XÁC LÀ NIỀM ĐAM MÊ</h2>
@@ -128,10 +130,10 @@ require "../Components/navbar.php";
                 <p>Nơi những kiệt tác được chăm sóc và thăng hoa.</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item" data-aos="zoom-in"><img src="..\Assets\img\toandien4.jpg" alt=""></div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100"><img src="..\Assets\img\toandien2.jpg" alt=""></div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200"><img src="..\Assets\img\toandien1.jpg" alt=""></div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300"><img src="..\Assets\img\toandien3.jpg" alt=""></div>
+                <div class="gallery-item" data-aos="zoom-in"><img src="../Assets/img/toandien1.jpg" alt=""></div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100"><img src="../Assets/img/toandien2.jpg" alt=""></div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200"><img src="../Assets/img/toandien3.jpg" alt=""></div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300"><img src="../Assets/img/toandien4.jpg" alt=""></div>
             </div>
         </div>
     </section>
@@ -140,16 +142,16 @@ require "../Components/navbar.php";
         <div class="container">
             <h2 data-aos="fade-up">SẴN SÀNG TRẢI NGHIỆM SỰ KHÁC BIỆT?</h2>
             <p data-aos="fade-up" data-aos-delay="100">Hãy để các chuyên gia của chúng tôi chăm sóc chiếc xe của bạn.</p>
-            <a href="#contact" class="cta-button" data-aos="fade-up" data-aos-delay="200">Đặt Lịch Ngay</a>
+            <a href="../Modules/login.php" class="cta-button" data-aos="fade-up" data-aos-delay="200">Đặt Lịch Ngay</a>
         </div>
     </section>
 
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="../Layouts\bao-Duong.js"></script>
-
+    
+    <?php
+    require "../Components/footer.php";
+    ?>
 </body>
 </html>
-<?php
-require "../Components/footer.php";
-?>

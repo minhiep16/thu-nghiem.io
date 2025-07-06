@@ -252,9 +252,8 @@ button {
     animation: bounceHorizontal 1s infinite alternate;
 }
 
-
-button.aos-animate:hover {
-    color: black !important;
+button:hover {
+    color: black;
     background-color: #666666;
 }
 @keyframes bounceHorizontal {

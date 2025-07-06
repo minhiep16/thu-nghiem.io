@@ -1,5 +1,4 @@
 <?php
-// --- PHẦN PHP CỦA BẠN VẪN GIỮ NGUYÊN ---
 require_once 'db.php';
 $error = '';
 $success = '';
@@ -56,22 +55,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <div class="info-panel">
             <div class="logo-wizard">
-                <i class="fa-solid fa-hat-wizard"></i> Wizard Magazine
+                <a href="../Modules/Home.php"><i class="fa-solid fa-house"></i>Car Care</a>
             </div>
-            <div class="brand-name">ShareCode.vn</div>
-            <h1>Don't have an account?</h1>
-            <p>Register to access all the features of our services. Manage your business in one place. It's free.</p>
+            <div class="brand-name"></div>
+            <h1>Chưa có tài khoản ?</h1>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/?locale=vi_VN" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/" aria-label="Github"><i class="fab fa-github"></i></a>
             </div>
         </div>
 
         <div class="form-panel">
-            <div class="logo-sharecode">ShareCode.vn</div>
-            <h2>Sign up</h2>    
+            <div class="logo-sharecode"></div>
+            <h2>Đăng Kí</h2>    
             
             <?php if(!empty($error)): ?>
                 <div class="error-message"><?php echo $error; ?></div>
@@ -82,26 +79,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Mật Khẩu" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <input type="password" name="confirm_password" placeholder="Xác nhận mật khẩu" required>
                 </div>
                 <div class="form-group terms">
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms">I agree to the all statements in <a href="#">Terms of service</a></label>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn">Sign up </button>
+                    <button type="submit" class="btn">Đăng Kí </button>
                 </div>
                 <div class="form-footer">
-                    <p>Have an account? <a href="login.php">Log in</a></p>
+                    <p>Bạn đã có tài khoản ? <a href="login.php">Đăng Nhập</a></p>
                 </div>
             </form>
         </div>
     </div>
-    <footer class="copyright">
-        Copyright &copy; ShareCode.vn
-    </footer>
 </body>
 </html>

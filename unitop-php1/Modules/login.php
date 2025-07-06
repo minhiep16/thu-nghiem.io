@@ -1,5 +1,4 @@
 <?php
-// --- PHẦN PHP CỦA BẠN VẪN GIỮ NGUYÊN ---
 session_start();
 require_once 'db.php';
 $error = '';
@@ -27,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->bind_result($id, $email, $hashed_password, $role);
                     if ($stmt->fetch()) {
                         if (password_verify($password, $hashed_password)) {
-                            // session_start(); // Đã start ở đầu file
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
@@ -65,21 +63,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container"> 
         <div class="info-panel">
             <div class="logo-wizard">
-                <i class="fa-solid fa-hat-wizard"></i> Wizard Magazine
+                <a href="../Modules/Home.php"><i class="fa-solid fa-house"></i>Car Care</a>
             </div>
-            <h1>Welcome Back!</h1>
-            <p>To keep connected with us please login with your personal info.</p>
+            <h1>WELCOME</h1>
+            <p>Đăng nhập để trải nghiệm dịch vụ</p>
              <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/?locale=vi_VN" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/" aria-label="Github"><i class="fab fa-github"></i></a>
             </div>
         </div>
 
         <div class="form-panel">
-            <div class="logo-sharecode">ShareCode.vn</div>
-            <h2>Sign in</h2>
+            <div class="logo-sharecode"></div>
+            <h2>Đăng Nhập</h2>
 
             <?php 
             if(!empty($error)){
@@ -95,20 +92,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Mật Khẩu" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn">Sign in </button>
+                    <button type="submit" class="btn">Đăng Nhập </button>
                 </div>
                 <div class="form-footer">
-                    <p>Don't have an account? <a href="register.php">Sign up</a></p>
+                    <p>Chưa có tài khoản ? <a href="../Modules/register.php">Đăng Kí</a></p>
                 </div>
             </form>
         </div>
     </div>
-    <footer class="copyright">
-        Copyright &copy; ShareCode.vn
-    </footer>
      
     <script src="../Assets/scripts/vanta-init.js"></script>
     

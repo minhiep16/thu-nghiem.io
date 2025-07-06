@@ -1,14 +1,11 @@
 <?php
  if (session_status() == PHP_SESSION_NONE) { session_start(); }
- require "../Components/navbar.php"; // Nhúng Navbar
-
- // --- 1. KẾT NỐI DATABASE ---
+ require "../Components/navbar.php"; 
  $servername = "localhost"; $username = "root"; $password = ""; $dbname = "datlich";
  $conn = new mysqli($servername, $username, $password, $dbname);
  $conn->set_charset("utf8mb4");
  if ($conn->connect_error) { die("Lỗi kết nối CSDL."); }
  
- // --- 2. LẤY SẢN PHẨM TRONG GIỎ HÀNG ĐỂ HIỂN THỊ ---
  $products_in_cart = [];
  $subtotal = 0;
  $shipping = 0;
@@ -36,7 +33,7 @@
          ];
          $subtotal += $product['price'] * $quantity;
      }
-     if ($subtotal > 0) $shipping = 20000; // Chỉ tính phí ship nếu có hàng
+     if ($subtotal > 0) $shipping = 20000; 
  }
  $total = $subtotal + $shipping;
  ?>
@@ -51,10 +48,7 @@
  <body>
      <div class="container">
          <header class="cart-header">
-             <h1>Shopping cart</h1>
-             <div class="breadcrumbs">
-                 <a href="index.php?page=chassis">Shop</a> &gt; <span>Shopping Cart</span>
-             </div>
+             <h1>Giỏ Hàng</h1>
          </header>
  
          <main class="cart-container">
@@ -88,20 +82,20 @@
              </div>
  
              <aside class="cart-summary">
-                 <h2>Summary</h2>
+                 <h2>Sản Phẩm</h2>
                  <div class="summary-row">
-                     <span>Subtotal</span>
+                     <span>Giá</span>
                      <span id="summary-subtotal"><?php echo number_format($subtotal); ?> VNĐ</span>
                  </div>
                  <div class="summary-row">
-                     <span>Shipping</span>
+                     <span>Thuế</span>
                      <span id="summary-shipping"><?php echo number_format($shipping); ?> VNĐ</span>
                  </div>
                  <div class="summary-row total">
-                     <span>Total</span>
+                     <span>TỔng tiền</span>
                      <span id="summary-total">VND <?php echo number_format($total); ?></span>
                  </div>
-                 <button class="checkout-btn" id="checkout-btn">Check Out</button>
+                 <button class="checkout-btn" id="checkout-btn">Thanh Toán</button>
              </aside>
          </main>
      </div>
