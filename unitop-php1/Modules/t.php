@@ -903,3 +903,353 @@ $conn->close();
     <script src="Layouts/Addchassis.js"></script>
 </body>
 </html>
+
+
+
+<?php
+// Home.php (Đã cập nhật)
+require "../Components/navbar.php";
+?>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - WrapStyle</title>
+    <link rel="stylesheet" href="../Assets/styles/Home.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+        <section class="hero-section">
+        <video autoplay muted loop id="background-video">
+            <source src="../Assets/img/Home.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
+            <h1>CAR TUNING</h1>
+            <p class="subtitle">DESIGN | WRAPPING & PAINTING | BODY KIT | INTERIOR</p>
+            <p class="description">
+                Một ý tưởng "đột phá" sẽ giúp xe của bạn nổi bật giữa hàng ngàn chiếc khác. Từ dáng vẻ, hiệu suất đến từng chi tiết nhỏ đều có thể là điểm nhấn nổi bật của riêng bạn.
+            </p>
+        </div>
+    </section>
+    <section class="slider">
+        <div class="slideritems">
+            <div class="slideritem"><img src="../Assets/img/Banner5.webp" alt="Banner 5"></div>
+            <div class="slideritem"><img src="../Assets/img/Banner1.jpg" alt="Banner 1"></div>
+            <div class="slideritem"><img src="../Assets/img/Banner2.jpg" alt="Banner 2"></div>
+            <div class="slideritem"><img src="../Assets/img/Banner3.webp" alt="Banner 3"></div>
+            <div class="slideritem"><img src="../Assets/img/Banner4.jpg" alt="Banner 4"></div>
+        </div>
+    </section>
+
+    <div class="container page-container">
+        <section class="featured-services">
+            <h1 data-aos="fade-up">DỊCH VỤ NỔI BẬT</h1>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="../Assets/img/PPF1.webp" alt="Dán PPF">
+                    <h2>DÁN PPF</h2>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../Assets/img/Wrap1.webp" alt="Wrap đổi màu">
+                    <h2>WRAP ĐỔI MÀU</h2>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="../Assets/img/Wash1.png" alt="Rửa xe detailing">
+                    <h2>RỬA XE DETAILING</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-us-title" data-aos="fade-up">
+            VỀ CHÚNG TÔI
+        </section>
+
+        <section class="about-us-content">
+            <div class="about-text" data-aos="fade-right">
+                <h2>NIỀM ĐAM MÊ BẤT TẬN</h2>
+                <p>
+                    Tại đây, chúng tôi không chỉ coi xe hơi là một phương tiện, mà đó còn là một tài sản và niềm đam mê. Được thành lập bởi đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi ra đời với sứ mệnh mang đến những giải pháp chăm sóc và nâng cấp xe toàn diện, chuyên nghiệp và đáng tin cậy nhất cho khách hàng.
+                </p>
+                <a href="vechungtoi.php" class="btn-more">TÌM HIỂU THÊM</a>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                 <img src="../Assets/img/Vechungtoi.webp" alt="Về chúng tôi">
+            </div>
+        </section>
+
+        <section class="hero-section">
+        <video autoplay muted loop id="background-video">
+            <source src="../Assets/img/Home.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
+            <h1>CAR TUNING</h1>
+            <p class="subtitle">DESIGN | WRAPPING & PAINTING | BODY KIT | INTERIOR</p>
+            <p class="description">
+                Một ý tưởng "đột phá" sẽ giúp xe của bạn nổi bật giữa hàng ngàn chiếc khác. Từ dáng vẻ, hiệu suất đến từng chi tiết nhỏ đều có thể là điểm nhấn nổi bật của riêng bạn.
+            </p>
+        </div>
+    </section>
+    </div>
+    <?php require "../Components/footer.php"; ?>
+    <script src="../Layouts/Home.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, 
+        once: true, // Hiệu ứng chỉ chạy 1 lần
+      });
+    </script>
+</body>
+</html>
+
+
+
+
+
+/* Home.css (Đã tân trang) */
+
+/* --- CÀI ĐẶT CHUNG & BIẾN MÀU --- */
+:root {
+    --primary-color: #ffffff; 
+    --secondary-color: #cccccc; 
+    --accent-color: #fbc833;
+    --dark-bg: #1a1a1a; 
+    --text-dark: #201c1c;
+    --text-light: #c6c6c6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    max-width: 1920px; /* Hỗ trợ màn hình rộng hơn */
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif, Arial;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: #fff;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+/* --- HERO VIDEO SECTION --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Chiều cao chiếm 90% màn hình */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2; 
+    transform: translate(-50%, -50%);
+    object-fit: cover; 
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 6rem); /* Font tự co giãn */
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+}
+.hero-content .subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    color: var(--secondary-color);
+}
+.hero-content .description {
+    font-size: 1.1em;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+    color: var(--secondary-color);
+    max-width: 700px;
+}
+
+
+/* --- SLIDER SECTION --- */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Tăng chiều cao slider */
+    overflow: hidden;
+}
+.slideritems {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.slideritem {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+.slideritem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giữ tỷ lệ ảnh đẹp hơn */
+}
+.slideritem.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+
+/* --- FEATURED SERVICES SECTION --- */
+.featured-services h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: var(--text-dark);
+}
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* SỬA: Tự động xuống hàng trên mobile */
+}
+.service-card {
+    background: #201c1c;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 320px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+}
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.service-card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 10px;
+    color: var(--text-light);
+}
+
+
+/* --- ABOUT US SECTION --- */
+.about-us-title {
+    font-size: 3em;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 20px;
+    text-align: center;
+    color: var(--primary-color);
+    background-color: var(--dark-bg);
+}
+.about-us-content {
+    display: grid; /* SỬA: Dùng grid cho layout linh hoạt */
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+}
+.about-text {
+    text-align: justify;
+}
+.about-text h2 {
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.about-text p {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.btn-more {
+    display: inline-block;
+    background-color: var(--dark-bg);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.btn-more:hover {
+    background-color: #000;
+}
+
+/* --- MEDIA QUERIES FOR RESPONSIVE --- */
+@media (max-width: 992px) {
+    .about-us-content {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột trên tablet */
+    }
+    .about-text {
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .services-grid {
+        gap: 20px;
+    }
+    .hero-section {
+        height: 70vh;
+    }
+}

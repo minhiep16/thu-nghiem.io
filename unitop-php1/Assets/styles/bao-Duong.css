@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #ffd700;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 span {
+    color: #ffd700;
+    display: block;
+}
+
+.cta-button {
+    font-family: 'Oswald', sans-serif;
+    background: #ffd700;
+    color: #121212;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 2px solid #ffd700;
+    animation: moveButton 1.5s infinite alternate;
+}
+
+.cta-button:hover {
+    background: #ffffff;
+    color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-title p {
+    color: #aaaaaa;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+.intro .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.intro-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.intro-content {
+    flex: 1;
+}
+
+.intro-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+}
+
+.intro-content p {
+    color: #aaaaaa;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    padding-top: 1.5rem;
+}
+
+.stat-item h4 {
+    font-size: 2rem;
+    color: #ffd700;
+}
+
+.stat-item p {
+    color: #aaaaaa;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.services {
+    background-color: #1a1a1a;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #121212;
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    border-color: #ffd700;
+}
+
+.card-icon {
+    margin-bottom: 1.5rem;
+}
+
+.card-icon img {
+    width: 60px;
+    height: 60px;
+    filter: invert(91%) sepia(51%) saturate(1499%) hue-rotate(320deg) brightness(102%) contrast(102%); 
+}
+
+.service-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: #aaaaaa;
+    line-height: 1.7;
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+.process-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: rgba(255, 215, 0, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+.timeline-item {
+    padding: 1rem 3rem;
+    position: relative;
+    width: 50%;
+}
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+.timeline-content {
+    padding: 2rem;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.timeline-item:hover .timeline-content {
+    border-color: #ffd700;
+}
+.step-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #ffd700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.timeline-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+}
+
+.gallery {
+    background: #1a1a1a;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.cta {
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+}
+.cta h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.cta p {
+    color: #aaaaaa;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem 0;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+}
+
+@media(max-width: 992px) {
+    .intro .container { flex-direction: column; }
+}
+@media(max-width: 768px) {
+    section { padding: 4rem 0; }
+    .hero-content h1 { font-size: 3rem; }
+    .process-timeline::after { left: 30px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 15px; }
+    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+}
+
+/* =============================================== */
+/* CODE THÊM VÀO CHO ANIMATION NÚT BẤM
+/* =============================================== */
+
+/* Keyframe cho animation đi lên xuống của nút "Khám Phá Dịch Vụ" */
+@keyframes moveButton {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Áp dụng animation 'moveButton' cho nút trong phần hero */
+.hero .cta-button {
+    animation: moveButton 1.5s infinite alternate;
+}
+
+/* Keyframe cho animation lắc của nút "Đặt Lịch Ngay" */
+@keyframes shake {
+    0%, 100% {
+		transform: translateX(0);
+	}
+	10%, 30%, 50%, 70%, 90% {
+		transform: translateX(-6px);
+	}
+	20%, 40%, 60%, 80% {
+		transform: translateX(6px);
+	}
+}
+
+/* Áp dụng animation 'shake' cho nút trong phần cta */
+.cta .cta-button {
+    animation: shake 1.2s infinite;
+}

@@ -1,26 +1,32 @@
-// Home.js (Đã tinh gọn)
+const sliderItem = document.querySelectorAll('.slideritem');
+let i = 0;
+const totalItems = sliderItem.length;
 
-// --- SLIDER LOGIC ---
-const sliderItems = document.querySelectorAll('.slideritem');
-let currentSlideIndex = 0;
-const totalSlides = sliderItems.length;
-
-function showNextSlide() {
-    // Ẩn slide hiện tại
-    if (totalSlides > 0) {
-        sliderItems[currentSlideIndex].classList.remove('active');
-        // Tăng index, quay về 0 nếu hết
-        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-        // Hiện slide tiếp theo
-        sliderItems[currentSlideIndex].classList.add('active');
-    }
+function updateSlider() {
+  sliderItem.forEach(item => item.classList.remove('active'));
+  sliderItem[i].classList.add('active');
 }
 
-// Kích hoạt slide đầu tiên và bắt đầu tự động chuyển
-if (totalSlides > 0) {
-    sliderItems[0].classList.add('active');
-    setInterval(showNextSlide, 3000); // Chuyển slide mỗi 3 giây
+function nextSlide() {
+  i = (i + 1) % totalItems;
+  updateSlider();
 }
 
-// Lưu ý: Thư viện AOS đã được khởi tạo trong file Home.php
-// Bạn không cần thêm code JavaScript cho hiệu ứng cuộn trang ở đây nữa.
+updateSlider();
+
+setInterval(() => {
+  nextSlide();
+}, 2000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const elementsToAnimate = document.querySelectorAll(
+        '.content1 h1, .Dichvunoibat, .content15, .content2, .hero-section'
+    );
+
+    elementsToAnimate.forEach((element, index) => {
+        element.classList.add('fade-in-from-top');
+        setTimeout(() => {
+            element.classList.add('visible');
+        }, index * 200);
+    });
+});

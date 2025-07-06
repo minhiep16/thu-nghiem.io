@@ -1,8 +1,3 @@
-   <?php
-    require "../Components/navbar.php";
-    ?>
-    
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -22,7 +17,7 @@
         <div class="container" data-aos="fade-in" data-aos-duration="1500">
             <h1>SỬA CHỮA ĐỘNG CƠ <br><span>CHUYÊN SÂU</span></h1>
             <p>Dịch vụ chẩn đoán, sửa chữa và nâng cấp hiệu suất động cơ hàng đầu với công nghệ hiện đại và đội ngũ chuyên gia tận tâm.</p>
-            <a href="#contact" class="cta-button">Đặt Lịch Ngay</a>
+            
         </div>
     </div>
 
@@ -87,12 +82,16 @@
             </div>
         </div>
     </section>
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2 data-aos="fade-up">Sẵn Sàng Trải Nghiệm Dịch Vụ Đỉnh Cao?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Liên hệ với chúng tôi ngay hôm nay để được tư vấn và đặt lịch hẹn.</p>
+            <a href="#" class="cta-button" data-aos="fade-up" data-aos-delay="200">Đặt Lịch Ngay</a>
+        </div>
+    </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../Layouts/suaDongco.js"></script>
 
 </body>
 </html>
-<?php
-    require "../Components/footer.php";
-    ?>

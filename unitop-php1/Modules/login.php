@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../Assets/styles/login.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="info-panel">
             <div class="logo-wizard">
                 <i class="fa-solid fa-hat-wizard"></i> Wizard Magazine

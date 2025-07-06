@@ -1,60 +1,76 @@
-/* Home.css (Đã tân trang) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-/* --- CÀI ĐẶT CHUNG & BIẾN MÀU --- */
+/* --- BIẾN MÀU VÀ THIẾT LẬP CƠ BẢN --- */
 :root {
     --primary-color: #ffffff; 
     --secondary-color: #cccccc; 
-    --accent-color: #fbc833;
-    --dark-bg: #1a1a1a; 
-    --text-dark: #201c1c;
-    --text-light: #c6c6c6;
+    --accent-color: #f7d633;
+    --dark-bg: #333; 
+    --button-bg: #333; 
+    --button-text: #ffffff;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    max-width: 1920px; /* Hỗ trợ màn hình rộng hơn */
+    max-width: 1620px;
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif, Arial;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    background-color: #fff;
-    animation: fadeInAnimation ease 1s;
+    /* Animation khi tải trang */
+    animation: fadeInAnimation ease 1.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-@keyframes fadeInAnimation {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* --- SLIDER ẢNH --- */
+.slideritems {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    transition: 2s;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
+.slideritem {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Sửa để vừa với container */
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
 }
 
-.page-container {
-    padding-top: 60px;
-    padding-bottom: 60px;
+.slideritem.active {
+    opacity: 1;
+    z-index: 1;
 }
 
+.slideritem img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: -400px; /* Vị trí này có thể cần điều chỉnh tùy vào mục đích thiết kế */
+    object-fit: cover;
+}
 
-/* --- HERO VIDEO SECTION --- */
+/* --- HERO SECTION VỚI VIDEO NỀN --- */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 90vh; /* Chiều cao chiếm 90% màn hình */
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--primary-color);
+    overflow: hidden;
+    margin-top: 20px;
 }
 
 #background-video {
@@ -70,172 +86,243 @@ body {
     object-fit: cover; 
 }
 
-.hero-section .overlay {
+.overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.6); 
     z-index: -1;
 }
 
-.hero-content h1 {
-    font-size: clamp(3rem, 10vw, 6rem); /* Font tự co giãn */
+.hero-section .content {
+    position: relative;
+    z-index: 1; 
+    max-width: 900px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.hero-section .content h1 {
+    font-size: 6em; 
     font-weight: 700;
     margin-bottom: 15px;
     letter-spacing: 5px;
 }
-.hero-content .subtitle {
-    font-size: clamp(1rem, 4vw, 1.5rem);
+
+.hero-section .content .subtitle {
+    font-size: 1.5em;
     font-weight: 300;
     margin-bottom: 30px;
     letter-spacing: 2px;
     color: var(--secondary-color);
 }
-.hero-content .description {
+
+.hero-section .content .description {
     font-size: 1.1em;
-    margin: 0 auto 40px auto;
+    margin-bottom: 40px;
     line-height: 1.8;
     color: var(--secondary-color);
     max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-/* --- SLIDER SECTION --- */
-.slider {
-    position: relative;
-    width: 100%;
-    height: 600px; /* Tăng chiều cao slider */
-    overflow: hidden;
-}
-.slideritems {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-.slideritem {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    z-index: 0;
-}
-.slideritem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Giữ tỷ lệ ảnh đẹp hơn */
-}
-.slideritem.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-
-/* --- FEATURED SERVICES SECTION --- */
-.featured-services h1 {
+/* --- PHẦN "DỊCH VỤ NỔI BẬT" --- */
+.content1 h1 {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 50px;
-    color: var(--text-dark);
+    margin-bottom: 40px;
+    margin-top: 50px;
+    color: #201c1c;
 }
-.services-grid {
+
+.Dichvunoibat {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* SỬA: Tự động xuống hàng trên mobile */
+    flex-wrap: wrap; /* Cho phép xuống dòng trên mobile */
+    gap: 90px;
+    padding: 0 20px;
+    margin-top: 50px;
 }
-.service-card {
+
+.Dichvunoibat1 {
     background: #201c1c;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    width: 320px;
+    box-shadow: 0 4px 12px rgba(16, 2, 2, 0.753);
+    width: 300px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
 }
-.service-card:hover {
+
+.Dichvunoibat1:hover {
     transform: translateY(-10px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+    box-shadow: 0 16px 32px rgba(74, 74, 73, 0.4);
+    background-color: #353535;
 }
-.service-card img {
+
+.Dichvunoibat1 img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
 }
-.service-card h2 {
+
+.Dichvunoibat1 h2 {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     padding: 15px 10px;
-    color: var(--text-light);
+    color: #c6c6c6;
 }
 
-
-/* --- ABOUT US SECTION --- */
-.about-us-title {
+/* --- TIÊU ĐỀ PHÂN CÁCH --- */
+.content15 {
     font-size: 3em;
     margin-top: 100px;
     margin-bottom: 50px;
     padding: 20px;
     text-align: center;
-    color: var(--primary-color);
-    background-color: var(--dark-bg);
-}
-.about-us-content {
-    display: grid; /* SỬA: Dùng grid cho layout linh hoạt */
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    margin-top: 50px;
-}
-.about-text {
-    text-align: justify;
-}
-.about-text h2 {
-    font-size: 3em;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-.about-text p {
-    font-size: 1.2em;
-    color: var(--text-dark);
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-.btn-more {
-    display: inline-block;
-    background-color: var(--dark-bg);
-    color: var(--primary-color);
-    padding: 12px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.btn-more:hover {
-    background-color: #000;
+    color: #fbc833;
+    background-color: #333335;
 }
 
-/* --- MEDIA QUERIES FOR RESPONSIVE --- */
-@media (max-width: 992px) {
-    .about-us-content {
-        grid-template-columns: 1fr; /* Chuyển thành 1 cột trên tablet */
+/* --- PHẦN "VỀ CHÚNG TÔI" --- */
+.content2 {
+    display: flex;
+    align-items: center; /* Căn giữa các item theo chiều dọc */
+    padding: 0 20px; /* Thêm padding */
+}
+
+.content2 img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.Vechungtoi {
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 50px;
+    text-align: justify;
+}
+
+.Vechungtoi h2 {
+    font-size: 3em;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Vechungtoi p {
+    font-size: 1.5em;
+    color: #201c1c;
+    line-height: 1.7; /* Giảm line-height cho dễ đọc */
+}
+
+/* --- HIỆU ỨNG ANIMATION --- */
+.fade-in-from-top {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in-from-top.visible {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
     }
-    .about-text {
-        text-align: center;
+    100% {
+        opacity: 1;
     }
 }
-@media (max-width: 768px) {
-    .services-grid {
-        gap: 20px;
+
+
+/* ============================================== */
+/* ===   NÂNG CẤP TƯƠNG THÍCH DI ĐỘNG (MOBILE) === */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    .Dichvunoibat {
+        gap: 40px; /* Giảm khoảng cách trên tablet */
     }
+    .content2 {
+        padding: 0 40px; /* Tăng padding trên tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    /* -- Hero Section -- */
     .hero-section {
-        height: 70vh;
+        height: 600px; /* Giảm chiều cao cho vừa màn hình mobile */
+    }
+    .hero-section .content h1 {
+        font-size: 4em;
+    }
+    .hero-section .content .subtitle {
+        font-size: 1.2em;
+    }
+    .hero-section .content .description {
+        font-size: 1em;
+        padding: 0 15px;
+    }
+
+    /* -- Dịch vụ nổi bật -- */
+    .Dichvunoibat {
+        flex-direction: column; /* Xếp dọc */
+        align-items: center; /* Căn giữa */
+        gap: 40px;
+    }
+    
+    /* -- Tiêu đề phân cách -- */
+    .content15 {
+        font-size: 2.2em;
+        margin-top: 60px;
+    }
+
+    /* -- Về chúng tôi -- */
+    .content2 {
+        flex-direction: column; /* Xếp dọc */
+        padding: 0 20px;
+    }
+    .content2 img {
+        width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+        margin-bottom: 30px;
+    }
+    .Vechungtoi {
+        margin-left: 0; /* Reset lề */
+        margin-right: 0;
+    }
+    .Vechungtoi h2 {
+        font-size: 2.5em;
+    }
+    .Vechungtoi p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* -- Hero Section -- */
+    .hero-section {
+        height: 500px;
+    }
+    .hero-section .content h1 {
+        font-size: 3em;
+        letter-spacing: 3px;
+    }
+    .hero-section .content .subtitle {
+        font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    /* -- Tiêu đề -- */
+    .content1 h1 {
+        font-size: 30px;
+    }
+    .content15 {
+        font-size: 1.8em;
     }
 }
