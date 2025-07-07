@@ -1,3 +1,4 @@
+
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -20,16 +21,14 @@ $newProjects = 278; $newClients = 156; $conversionRate = 64.89; $supportTickets 
 
 <div class="d-flex" id="wrapper">
     <aside id="sidebar-wrapper">
-        <div class="sidebar-heading text-center py-4 fs-4 fw-bold text-uppercase">
-            <i class="fas fa-crown me-2"></i>Rooast
+        <div class="logo">
+            <img src="../Assets/img/logo .png" alt="">
         </div>
         <div class="list-group list-group-flush my-3">
             <a href="#" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i>Trang tổng quan</a>
-            <a href="../Modules/admin.php" class="list-group-item list-group-item-action"><i class="fas fa-chart-line"></i>Danh sách lịch hẹn</a>
+            <a href="../Modules/quan-ly-lich.php" class="list-group-item list-group-item-action"><i class="fas fa-chart-line"></i>Danh sách lịch hẹn</a>
             <a href="../Modules/quan-li-comment.php" class="list-group-item list-group-item-action"><i class="fas fa-file-invoice-dollar"></i>Quản lí bình luận</a>
             <a href="../Modules/Addchassis.php" class="list-group-item list-group-item-action"><i class="fas fa-users"></i>Thêm sản phẩm</a>
-            <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-project-diagram"></i>Projects</a>
-            <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-cogs"></i>Settings</a>
             <a href="logout.php" class="list-group-item list-group-item-action text-danger"><i class="fas fa-power-off"></i>Logout</a>
         </div>
     </aside>
@@ -47,17 +46,12 @@ $newProjects = 278; $newClients = 156; $conversionRate = 64.89; $supportTickets 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item me-3">
-                        <a href="#" class="btn btn-primary">Upgrade to PRO</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user me-2"></i><?php echo htmlspecialchars($adminName); ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>

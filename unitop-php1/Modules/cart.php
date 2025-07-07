@@ -44,12 +44,20 @@
      <title>Giỏ hàng của bạn</title>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="../Assets/Styles/cart.css"> </head>
+     <link rel="stylesheet" href="../Assets/Styles/cart.css">
+     <style>
+        .customer-info-form { margin-bottom: 20px; }
+        .customer-info-form h3 { font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;}
+        .customer-info-form .form-group { margin-bottom: 15px; }
+        .customer-info-form label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px; }
+        .customer-info-form input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        #payment-confirmed-btn { width: 100%; background-color: #28a745; color: #fff; border: none; padding: 15px; font-size: 16px; font-weight: 600; cursor: pointer; border-radius: 4px; margin-top: 15px; transition: background-color 0.3s; }
+        #payment-confirmed-btn:disabled { background-color: #6c757d; cursor: not-allowed; }
+     </style>
+</head>
  <body>
      <div class="container">
-         <header class="cart-header">
-             <h1>Giỏ Hàng</h1>
-         </header>
+         <header class="cart-header"><h1>Giỏ Hàng</h1></header>
  
          <main class="cart-container">
              <div class="cart-items">
@@ -59,9 +67,7 @@
                     <?php else: ?>
                         <?php foreach ($products_in_cart as $product): ?>
                         <div class="cart-item" data-id="<?php echo $product['id']; ?>" data-price="<?php echo $product['price']; ?>">
-                            <div class="cart-item-image">
-                                <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
-                            </div>
+                            <div class="cart-item-image"><img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>"></div>
                             <div class="cart-item-details">
                                 <p class="cart-item-name"><?php echo htmlspecialchars($product['name']); ?></p>
                                 <p class="cart-item-price-single"><?php echo number_format($product['price']); ?> VNĐ</p>
@@ -71,9 +77,7 @@
                                 <input type="number" class="quantity-input" value="<?php echo $product['quantity']; ?>" min="1" data-id="<?php echo $product['id']; ?>">
                                 <button class="quantity-btn" data-action="increase">+</button>
                             </div>
-                            <div class="cart-item-total-price">
-                               <?php echo number_format($product['price'] * $product['quantity']); ?> VNĐ
-                            </div>
+                            <div class="cart-item-total-price"><?php echo number_format($product['price'] * $product['quantity']); ?> VNĐ</div>
                             <button class="remove-btn" data-id="<?php echo $product['id']; ?>">&times;</button>
                         </div>
                         <?php endforeach; ?>
@@ -82,20 +86,40 @@
              </div>
  
              <aside class="cart-summary">
-                 <h2>Sản Phẩm</h2>
+                 <form id="customer-info-form" class="customer-info-form">
+                    <h3>Thông tin giao hàng</h3>
+                    <div class="form-group">
+                        <label for="customer_name">Họ và tên</label>
+                        <input type="text" id="customer_name" name="customer_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_phone">Số điện thoại</label>
+                        <input type="tel" id="customer_phone" name="customer_phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_address">Địa chỉ</label>
+                        <input type="text" id="customer_address" name="customer_address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_note">Ghi chú (tùy chọn)</label>
+                        <input type="text" id="customer_note" name="customer_note">
+                    </div>
+                 </form>
+
+                 <h2>Tổng quan đơn hàng</h2>
                  <div class="summary-row">
-                     <span>Giá</span>
+                     <span>Tạm tính</span>
                      <span id="summary-subtotal"><?php echo number_format($subtotal); ?> VNĐ</span>
                  </div>
                  <div class="summary-row">
-                     <span>Thuế</span>
+                     <span>Phí vận chuyển</span>
                      <span id="summary-shipping"><?php echo number_format($shipping); ?> VNĐ</span>
                  </div>
                  <div class="summary-row total">
-                     <span>TỔng tiền</span>
+                     <span>Tổng cộng</span>
                      <span id="summary-total">VND <?php echo number_format($total); ?></span>
                  </div>
-                 <button class="checkout-btn" id="checkout-btn">Thanh Toán</button>
+                 <button class="checkout-btn" id="checkout-btn" type="submit" form="customer-info-form">Tiến hành thanh toán</button>
              </aside>
          </main>
      </div>
@@ -107,6 +131,7 @@
             <p>Sử dụng App ngân hàng hoặc Ví điện tử để thanh toán.</p>
             <img id="qr-code-image" src="https://api.vietqr.io/image/970436-0987654321-2P4E2n.jpg?accountName=TEN%20CHU%20KHOAN&amount=<?php echo $total; ?>&addInfo=DH<?php echo rand(1000,9999); ?>" alt="Mã QR Thanh toán">
             <p>Tổng tiền: <strong id="qr-total-amount"><?php echo number_format($total); ?> VNĐ</strong></p>
+            <button id="payment-confirmed-btn">Tôi đã thanh toán</button>
         </div>
      </div>
      

@@ -1,97 +1,122 @@
-// file: script.js (Phiên bản cuối cùng dành cho PHP)
+// dat-lich.js (Đã nâng cấp)
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Lấy các phần tử (element) trong form mà chúng ta cần làm việc
-    const form = document.querySelector('form');
+    const form = document.getElementById('booking-form');
+    if (!form) return; // Dừng lại nếu không tìm thấy form
+
+    // Lấy các trường input
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
     const termsCheckbox = document.getElementById('terms');
+    const messageInput = document.getElementById('message');
+    const addressInput = document.getElementById('address');
+    const errorDiv = document.getElementById('auth-error');
 
-    // Thêm một sự kiện "lắng nghe" khi người dùng nhấn nút submit
+    // Nâng cấp: Lấy trường ngày và giờ
+    const dateInput = document.getElementById('date');
+    const timeInput = document.getElementById('time');
+
+    // Tự động điền email nếu người dùng đã đăng nhập
+    if (appData.isLoggedIn) {
+        emailInput.value = appData.userEmail;
+        emailInput.readOnly = true;
+    }
+
     form.addEventListener('submit', function (event) {
-        // Ngăn chặn hành vi mặc định của form là tải lại trang
-        event.preventDefault();
+        event.preventDefault(); // Luôn luôn ngăn chặn việc gửi form mặc định
 
-        // Gọi hàm kiểm tra toàn bộ form
+        // 1. Kiểm tra đăng nhập trước tiên
+        if (!appData.isLoggedIn) {
+            errorDiv.innerHTML = 'Vui lòng <a href="login.php">đăng nhập</a> để hoàn tất đặt lịch.';
+            errorDiv.style.display = 'block';
+            window.scrollTo(0, errorDiv.offsetTop - 20); // Cuộn đến thông báo lỗi
+            return; // Dừng thực thi
+        }
+
+        // 2. Xác thực form
         let isFormValid = validateForm();
 
-        // Nếu form hợp lệ, tiến hành gửi dữ liệu đến server PHP
         if (isFormValid) {
-            // Thu thập dữ liệu từ các trường input
+            // 3. Gửi dữ liệu nếu form hợp lệ
             const services = [];
             document.querySelectorAll('input[name="services[]"]:checked').forEach(checkbox => {
                 services.push(checkbox.value);
             });
 
+            // Nâng cấp: Thêm date và time vào formData
             const formData = {
                 title: document.getElementById('title').value,
                 name: nameInput.value.trim(),
                 phone: phoneInput.value.trim(),
                 email: emailInput.value.trim(),
+                date: dateInput.value,
+                time: timeInput.value,
                 services: services,
-                brand: document.getElementById('brand').value,
-                schedule: document.getElementById('schedule').value,
-                message: document.getElementById('message').value.trim()
+                message: messageInput.value.trim(),
+                address: addressInput.value.trim()
             };
 
-            // Vô hiệu hóa nút bấm để tránh người dùng nhấn nhiều lần
             const submitButton = form.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.textContent = 'ĐANG GỬI...';
-            
-            // Sử dụng Fetch API để gửi dữ liệu đến file process-form.php
-            fetch('process-form.php', {
+
+            // Gửi dữ liệu đến máy chủ
+            fetch('./process-form.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData), // Chuyển object thành chuỗi JSON
+                body: JSON.stringify(formData),
             })
-            .then(response => response.json()) // Chuyển phản hồi từ server thành object JSON
-            .then(data => {
-                // Xử lý khi nhận được phản hồi từ server
-                if (data.error) {
-                    // Nếu server trả về lỗi (ví dụ: email trùng lặp)
-                    alert('Lỗi: ' + data.error);
+            .then(response => {
+                return response.json().then(data => ({ status: response.status, body: data }));
+            })
+            .then(({ status, body }) => {
+                if (status !== 200) {
+                     // Hiển thị lỗi cụ thể từ server
+                    alert('Lỗi: ' + body.error);
                 } else {
-                    // Nếu thành công
-                    alert(data.message);
-                    form.reset(); // Xóa trắng các trường trong form
+                    alert(body.message);
+                    form.reset();
+                    // Khôi phục lại email sau khi reset form
+                    if (appData.isLoggedIn) {
+                        emailInput.value = appData.userEmail;
+                    }
                 }
             })
             .catch(error => {
-                // Xử lý khi có lỗi mạng hoặc lỗi không xác định
                 console.error('Lỗi khi gửi form:', error);
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại sau.');
+                alert('Đã có lỗi xảy ra khi kết nối tới máy chủ. Vui lòng thử lại.');
             })
             .finally(() => {
-                // Bật lại nút bấm sau khi hoàn tất, dù thành công hay thất bại
                 submitButton.disabled = false;
                 submitButton.textContent = 'ĐẶT LỊCH HẸN';
             });
         } else {
-            console.log('Form có lỗi, vui lòng kiểm tra lại.');
+            console.log('Biểu mẫu có lỗi, vui lòng kiểm tra lại.');
+            // Tự động cuộn đến lỗi đầu tiên
+            const firstError = form.querySelector('.error');
+            if (firstError) {
+                firstError.focus();
+                window.scrollTo(0, firstError.offsetTop - 100);
+            }
         }
     });
 
-    // Hàm chính để kiểm tra tất cả các trường
     function validateForm() {
         let isValid = true;
         clearErrors();
 
-        // 1. Kiểm tra trường Tên
         if (nameInput.value.trim() === '') {
             showError(nameInput, 'Vui lòng nhập họ tên của bạn.');
             isValid = false;
         }
-        // 2. Kiểm tra trường Số điện thoại
         if (phoneInput.value.trim() === '') {
             showError(phoneInput, 'Vui lòng nhập số điện thoại.');
             isValid = false;
         }
-        // 3. Kiểm tra trường Email
         if (emailInput.value.trim() === '') {
             showError(emailInput, 'Vui lòng nhập địa chỉ email.');
             isValid = false;
@@ -99,39 +124,55 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(emailInput, 'Định dạng email không hợp lệ.');
             isValid = false;
         }
-        // 4. Kiểm tra checkbox Điều khoản
+
+        // Nâng cấp: validation cho ngày và giờ
+        if (dateInput.value === '') {
+            showError(dateInput, 'Vui lòng chọn ngày hẹn.');
+            isValid = false;
+        }
+        if (timeInput.value === '') {
+            showError(timeInput, 'Vui lòng chọn giờ hẹn.');
+            isValid = false;
+        }
+
         if (!termsCheckbox.checked) {
-            const termsLabel = document.querySelector('.terms-label');
-            termsLabel.style.color = '#e74c3c';
-            // Tạo một thông báo lỗi nhỏ dưới nút bấm để rõ ràng hơn
-            const errorSpan = document.createElement('span');
-            errorSpan.className = 'error-message';
-            errorSpan.innerText = 'Bạn phải đồng ý với điều khoản sử dụng.';
-            errorSpan.style.textAlign = 'center';
-            termsCheckbox.closest('.form-group').appendChild(errorSpan);
+            showError(termsCheckbox, 'Bạn phải đồng ý với điều khoản sử dụng.');
             isValid = false;
         }
         return isValid;
     }
-    // Hàm hiển thị lỗi
+
     function showError(inputElement, message) {
-        const formGroup = inputElement.parentElement.closest('.form-group');
-        const errorSpan = document.createElement('span');
-        errorSpan.className = 'error-message';
+        const formGroup = inputElement.closest('.form-group');
+        if (!formGroup) return;
+        let errorSpan = formGroup.querySelector('.error-message');
+        if (!errorSpan) {
+            errorSpan = document.createElement('span');
+            errorSpan.className = 'error-message';
+             // Nếu là checkbox, chèn lỗi vào vị trí khác
+            if (inputElement.type === 'checkbox') {
+                formGroup.appendChild(errorSpan);
+                inputElement.closest('.terms-label').classList.add('error-text');
+            } else {
+                formGroup.appendChild(errorSpan);
+            }
+        }
         errorSpan.innerText = message;
-        formGroup.appendChild(errorSpan);
         inputElement.classList.add('error');
     }
-    // Hàm xóa tất cả các lỗi cũ
+
     function clearErrors() {
         document.querySelectorAll('.error-message').forEach(msg => msg.remove());
         document.querySelectorAll('.form-group .error').forEach(input => input.classList.remove('error'));
-        document.querySelector('.terms-label').style.color = '';
+        document.querySelectorAll('.error-text').forEach(label => label.classList.remove('error-text'));
+        
+        if(errorDiv) {
+            errorDiv.style.display = 'none';
+        }
     }
-    // Hàm kiểm tra định dạng email
+
     function isValidEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
 });
-

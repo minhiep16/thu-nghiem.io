@@ -1,34 +1,35 @@
 <?php
+// dat-lich.php (Đã nâng cấp)
 session_start();
 
-if (!isset($_SESSION['id'])) { 
-    $_SESSION['redirect_after_login'] = '../Modules/Home.php';
-
-    header("Location: login.php?error=Vui lòng đăng nhập để đặt lịch");
-    exit();
-}
-
-
-$loggedInUserName = $_SESSION['name'] ?? 'Người dùng'; 
-$loggedInUserEmail = $_SESSION['email'] ?? '';
-
+$appData = [
+    'isLoggedIn' => isset($_SESSION['id']),
+    'userName'   => isset($_SESSION['id']) ? ($_SESSION['name'] ?? 'Người dùng') : '',
+    'userEmail'  => isset($_SESSION['id']) ? ($_SESSION['email'] ?? '') : ''
+];
 require "../Components/navbar.php";
 ?>
-        
-   
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Care - Đặt Lịch Hẹn</title>
+    <title>CAR CARE - Đặt Lịch Hẹn</title>
     <link rel="stylesheet" href="../Assets/styles/datlich.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        .auth-error-message {
+            color: #D8000C; background-color: #FFD2D2; border: 1px solid #D8000C;
+            padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center; font-size: 0.9rem;
+        }
+        .auth-error-message a { color: #D8000C; font-weight: bold; text-decoration: underline; }
+    </style>
 </head>
 <body>
-    <div class="content"> 
+    <div class="content">
         <div class="booking-container">
             <div class="info-side">
                 <div class="logo-text"><h1>NÂNG CẤP</h1><h1 class="yellow-text">CHUYẾN ĐI</h1><h1 class="yellow-text">CỦA BẠN</h1></div>
@@ -37,14 +38,14 @@ require "../Components/navbar.php";
                     <p>Hoặc liên hệ theo các thông tin bên dưới.</p>
                 </div>
             </div>
-            
+
             <div class="form-side">
                 <h2>Thông Tin Cá Nhân</h2>
                 <div id="js-stripe-bar" class="stripe-bar"></div>
 
                 <div id="auth-error" class="auth-error-message" style="display:none;"></div>
 
-                <form id="booking-form" action="process-form.php" method="POST">
+                <form id="booking-form">
                     <div class="form-row">
                         <div class="form-group half-width">
                             <select id="title" name="title">
@@ -64,6 +65,16 @@ require "../Components/navbar.php";
                         <input type="email" id="email" name="email" placeholder="Email" required>
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="date">Ngày hẹn</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="time">Giờ hẹn</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="services-label">Dịch Vụ</label>
                         <div class="checkbox-group">
@@ -77,16 +88,12 @@ require "../Components/navbar.php";
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group half-width">
-                            <div class="form-group">
-                                <textarea id="message" name="message" rows="5" placeholder="Lưu ý ngày giờ"></textarea>
-                            </div>
-                            </select>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" placeholder="Lời nhắn (tùy chọn)"></textarea>
                         </div>
-                        
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Địa chỉ"></textarea>
+                        <textarea id="address" name="address" rows="4" placeholder="Địa chỉ (tùy chọn)"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="terms-label">
@@ -97,17 +104,17 @@ require "../Components/navbar.php";
                         <button type="submit">ĐẶT LỊCH HẸN</button>
                     </div>
                 </form>
-               <script src="../Layouts/dat-lich.js"></script>
+            </div>
         </div>
-    </div>  
-</div>  
-</body>
-</html>     
+    </div>
+
+    <script>
+        const appData = <?php echo json_encode($appData); ?>;
+    </script>
     
-
-
-
-
+    <script src="../Layouts/dat-lich.js"></script>
+</body>
+</html>
 <?php
 require "../Components/footer.php";
 ?>

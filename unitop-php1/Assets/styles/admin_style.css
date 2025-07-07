@@ -1,9 +1,7 @@
-/* admin_style.css */
-
 :root {
-  --primary-accent: #0d6efd; /* Màu xanh dương làm điểm nhấn chính */
-  --light-accent: #e9f2ff;   /* Màu xanh dương rất nhạt cho nền icon */
-  --main-bg: #f8f9fa;        /* Màu nền chính cho trang, hơi xám nhẹ */
+  --primary-accent: #0d6efd; 
+  --light-accent: #e9f2ff;  
+  --main-bg: #ffffff; /* Đã đổi sang màu trắng */   
   --white: #ffffff;
   --dark-text: #212529;
   --muted-text: #6c757d;
@@ -12,11 +10,17 @@
 
 body {
     background-color: var(--main-bg);
+    color: var(--dark-text); /* Thêm màu chữ mặc định */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #wrapper {
   overflow-x: hidden;
+}
+
+.logo img {
+  width: 150px;
+  height: 150px;
 }
 
 /* --- Sidebar --- */
@@ -35,7 +39,8 @@ body {
   color: var(--dark-text);
   border-bottom: 1px solid var(--border-color);
 }
-#sidebar-wrapper .sidebar-heading .fa-crown{
+
+#sidebar-wrapper .sidebar-heading .fa-crown {
     color: var(--primary-accent);
 }
 
@@ -63,6 +68,7 @@ body {
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
+
 .list-group-item i {
     margin-right: 0.75rem;
 }
@@ -81,20 +87,27 @@ body {
 }
 
 /* --- Top Header --- */
-#page-content-wrapper header{
+#page-content-wrapper header {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: var(--white); /* Đảm bảo header có nền trắng */
+    border-bottom: 1px solid var(--border-color); /* Thêm đường viền dưới */
 }
 
 /* --- Main Content & Cards --- */
 .card {
-    border: none;
+    border: 1px solid var(--border-color); /* Thêm viền nhẹ cho card */
     border-radius: 0.75rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Tinh chỉnh bóng đổ */
     transition: all 0.3s ease-in-out;
 }
-.card:hover{
+
+.card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Tăng hiệu ứng khi hover */
+}
+
+.stat-card {
+    border: none; /* Bỏ viền cho thẻ thống kê để icon nổi bật hơn */
 }
 
 .stat-card .stat-icon {
@@ -106,10 +119,10 @@ body {
 }
 
 .table-hover tbody tr:hover {
-    background-color: #f8f9fa;
+    background-color: var(--light-accent); /* Đổi màu khi hover trên bảng */
 }
 
-.badge{
+.badge {
     font-size: 0.75rem;
     padding: 0.4em 0.7em;
 }
@@ -126,3 +139,25 @@ body {
     margin-left: -16rem;
   }
 }
+.recent-orders-table th {
+    font-weight: 600;
+}
+.recent-orders-table td {
+    vertical-align: middle;
+}
+.recent-orders-table th, .recent-orders-table td {
+    padding: 1rem;
+}
+
+/* --- Huy hiệu Trạng thái --- */
+.badge {
+    padding: 0.5em 0.9em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+}
+.status-pending { background-color: #fff3cd; color: #856404; }
+.status-processing { background-color: #d1ecf1; color: #0c5460; }
+.status-shipped { background-color: #cce5ff; color: #004085; }
+.status-completed { background-color: #d4edda; color: #155724; }
+.status-cancelled { background-color: #f8d7da; color: #721c24; }

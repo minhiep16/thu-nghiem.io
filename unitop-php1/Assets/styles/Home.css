@@ -9,13 +9,7 @@
     --button-text: #ffffff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+.home {
     max-width: 1620px;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;

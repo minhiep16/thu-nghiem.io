@@ -1,7 +1,4 @@
 <?php
-// quan-li-comment.php
-
-// --- 1. KẾT NỐI DATABASE ---
 $servername = "localhost";
 $username   = "root";
 $password   = "";
@@ -13,8 +10,6 @@ $conn->set_charset("utf8mb4");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// --- 2. LẤY TẤT CẢ BÌNH LUẬN TỪ CSDL ---
 $sql = "SELECT id, name, rating, comment, submission_date FROM reviews ORDER BY submission_date DESC";
 $result = $conn->query($sql);
 
@@ -25,7 +20,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý Bình luận</title>
-    <!-- CSS để trang quản lý trông đẹp hơn -->
+
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
         .container { max-width: 1400px; margin: auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -45,11 +40,16 @@ $result = $conn->query($sql);
         }
         .edit-btn { background-color: #ffc107; }
         .delete-btn { background-color: #dc3545; }
+        .container a{
+            text-decoration:none ;
+            color: #343a40;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <a href="./admin_dashboard.php">Back</a>
         <h1>Danh sách Bình luận của Khách hàng</h1>
 
         <?php if (isset($_GET['message'])): ?>

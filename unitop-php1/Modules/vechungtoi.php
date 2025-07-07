@@ -1,8 +1,7 @@
 <?php
-// --- PHẦN 1: PHP CHUẨN BỊ DỮ LIỆU ---
+
 session_start();
 
-// Tạo một mảng chứa toàn bộ dữ liệu cần thiết cho phía client
 $appData = [
     'isLoggedIn' => isset($_SESSION['id']),
     'userName'   => isset($_SESSION['id']) ? ($_SESSION['name'] ?? 'Người dùng') : '',
@@ -25,27 +24,23 @@ require "../Components/navbar.php";
 <body>
 
     <?php
-    // --- 1. THÔNG TIN KẾT NỐI DATABASE ---
     $servername = "localhost";
     $username   = "root";
     $password   = "";
     $dbname     = "datlich";
 
-    // --- 2. TẠO KẾT NỐI VÀ TRUY VẤN DỮ LIỆU ---
     $conn = new mysqli($servername, $username, $password, $dbname);
     $conn->set_charset("utf8mb4");
 
     $reviews = [];
     if ($conn->connect_error) {
-        // Nếu kết nối lỗi, không hiển thị gì cả và để mảng reviews rỗng
     } else {
-        // Truy vấn để lấy các bài đánh giá, sắp xếp theo ngày mới nhất
         $sql = "SELECT name, rating, comment, submission_date FROM reviews ORDER BY submission_date DESC";
         $result = $conn->query($sql);
 
         if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $reviews[] = $row; // Thêm mỗi hàng vào mảng reviews
+                $reviews[] = $row; 
             }
         }
         $conn->close();
@@ -60,7 +55,7 @@ require "../Components/navbar.php";
                     <div class="hero-text" >
                         
                         <p>
-                            Tại <strong>[Tên Gara/Công Ty của bạn]</strong>, chúng tôi không chỉ coi xe hơi là một phương tiện, mà đó còn là một tài sản và niềm đam mê. Được thành lập bởi đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi ra đời với sứ mệnh mang đến những giải pháp chăm sóc và sửa chữa xe toàn diện, chuyên nghiệp và đáng tin cậy nhất cho khách hàng.
+                            Tại <strong>Car Care</strong>, chúng tôi không chỉ coi xe hơi là một phương tiện, mà đó còn là một tài sản và niềm đam mê. Được thành lập bởi đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi ra đời với sứ mệnh mang đến những giải pháp chăm sóc và sửa chữa xe toàn diện, chuyên nghiệp và đáng tin cậy nhất cho khách hàng.
                         </p>
                         <ul>
                             <li>Kỹ thuật viên chuyên môn cao, được đào tạo bài bản.</li>
@@ -139,8 +134,8 @@ require "../Components/navbar.php";
                         <div class="member-card-image-wrapper">
                             <img src="../Assets/img/trung.jpg" alt="Lê Xuân Trung">
                             <div class="member-social-links">
-                                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                                <a href="https://www.facebook.com/le.xuan.trung.116164?locale=vi_VN" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                                <a href="./vechungtoi.php" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
                                 <a href="mailto:trunglx5217@ut.edu.vn" aria-label="Email"><i class="ri-mail-line"></i></a>
                             </div>
                         </div>
@@ -153,8 +148,8 @@ require "../Components/navbar.php";
                         <div class="member-card-image-wrapper">
                             <img src="../Assets/img/nghia.png" alt="Lê Đại Nghĩa">
                             <div class="member-social-links">
-                                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                                <a href="https://www.facebook.com/ainghiale.483464?locale=vi_VN" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                                <a href="./vechungtoi.php" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
                                 <a href="mailto:nghiald9074@ut.edu.vn" aria-label="Email"><i class="ri-mail-line"></i></a>
                             </div>
                         </div>
@@ -168,8 +163,8 @@ require "../Components/navbar.php";
                         <div class="member-card-image-wrapper">
                             <img src="../Assets/img/dat.jpg" alt="Đặng Phát Đạt">
                              <div class="member-social-links">
-                                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                                <a href="https://www.facebook.com/dongianlameem?locale=vi_VN" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                                <a href="./vechungtoi.php" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
                                 <a href="mailto:datdp7465@ut.edu.vn" aria-label="Email"><i class="ri-mail-line"></i></a>
                             </div>
                         </div>
@@ -183,8 +178,8 @@ require "../Components/navbar.php";
                         <div class="member-card-image-wrapper">
                             <img src="../Assets/img/hiep.jpg" alt="Nông Hoàng Minh Hiệp">
                             <div class="member-social-links">
-                                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                                <a href="https://www.facebook.com/minh.hiep.127064/?locale=vi_VN" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                                <a href="./vechungtoi.php" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
                                 <a href="mailto:hiepnhm4842@ut.edu.vn" aria-label="Email"><i class="ri-mail-line"></i></a>
                             </div>
                         </div>
@@ -198,8 +193,8 @@ require "../Components/navbar.php";
                         <div class="member-card-image-wrapper">
                             <img src="../Assets/img/hao.jpg" alt="Trịnh Nguyễn Phi Hào">
                             <div class="member-social-links">
-                                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                                <a href="https://www.facebook.com/phihaokc2005?locale=vi_VN" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                                <a href="./vechungtoi.php" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
                                 <a href="mailto:haotnp3612@ut.edu.vn" aria-label="Email"><i class="ri-mail-line"></i></a>
                             </div>
                         </div>

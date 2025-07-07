@@ -74,7 +74,7 @@ require "../Components/navbar.php";
             </div>
         </section>
     </div>
-    <script src="Layouts/PPF.js"></script>
+    <script src="../Layouts/PPF.js"></script>
     
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

@@ -105,6 +105,8 @@ if (isset($_GET['edit'])) {
 </head>
 <body>
     <div class="container">
+        <a href="./admin_dashboard.php">Back</a>
+    <div class="danhsach">
         <h1>Danh Sách Phụ Kiện</h1>
 
         <div class="form-section">
@@ -161,6 +163,7 @@ if (isset($_GET['edit'])) {
                 <p>Không có khung xe nào trong cơ sở dữ liệu.</p>
             <?php endif; ?>
         </div>
+    </div>
     </div>
     <script src="../Layouts/Addchassis.js"></script>
 </body>

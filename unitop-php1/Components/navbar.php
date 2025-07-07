@@ -258,6 +258,10 @@ $userName = $isLoggedIn ? ($_SESSION['name'] ?? 'User') : '';
             text-decoration: none;
             color:rgb(247, 247, 246);
         }
+        .banquyen a{
+            text-decoration: none;
+            color:rgb(247, 247, 246);
+        }
     
         .mobile-menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary-text-color); }
         .main-navigation .login-button a{background-color:#000;color:#fff;padding:10px 20px;border-radius:5px;transition:background-color .3s ease}.main-navigation .login-button a:hover{background-color:#333}.main-navigation .login-button a::after{display:none}.main-navigation .cart-icon a{position:relative;padding:20px 10px;font-size:18px}.main-navigation .cart-icon a::after{display:none}.cart-counter{position:absolute;top:8px;right:-5px;background-color:red;color:#fff;border-radius:50%;width:18px;height:18px;line-height:18px;font-size:11px;font-weight:700;text-align:center}.cart-link{position:relative;display:inline-block}#cart-count-badge{position:absolute;top:-8px;right:-12px;background-color:#e94560;color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;font-weight:700;border:1px solid #fff}
@@ -362,7 +366,11 @@ $userName = $isLoggedIn ? ($_SESSION['name'] ?? 'User') : '';
                     </li>
                     <li><a href="/unitop-php1/Modules/vechungtoi.php">Về Chúng Tôi</a></li>
                     <li><a href="/unitop-php1/Modules/dat-lich.php">Liên Hệ</a></li>
-                    
+                    <?php if ($isLoggedIn): ?>
+                        <li><a href="/unitop-php1/Modules/lich-hen-cua-toi.php">Lịch hẹn của tôi</a></li>
+                    <?php else: ?>
+                        <li><a href="javascript:void(0);" onclick="alert('Vui lòng đăng nhập để xem lịch hẹn của bạn.');">Lịch hẹn của tôi</a></li>
+                    <?php endif; ?>
                     <li class="cart-icon">
                         <a href="/unitop-php1/Modules/cart.php" class="cart-link" aria-label="Giỏ hàng">
                             <i class="fas fa-shopping-cart"></i>
@@ -385,7 +393,7 @@ $userName = $isLoggedIn ? ($_SESSION['name'] ?? 'User') : '';
                         </li>
                     <?php else: ?>
                         <li class="login-button">
-                            <a href="login.php">Đăng Nhập</a>
+                            <a href="/unitop-php1/Modules/login.php">Đăng Nhập</a>
                         </li>
                     <?php endif; ?>
                 </ul>

@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../Components/navbar.php';
+require __DIR__ . '/./unitop-php1/Components/navbar.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,18 +7,18 @@ require __DIR__ . '/../Components/navbar.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Assets/styles/Home.css">
+    <link rel="stylesheet" href="./unitop-php1/Assets/styles/Home.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <title>CAR CARE</title>
 </head>
-<body class='home'>
+<body>
     <div class="cont">
         <section class="hero-section">
             <video autoplay muted loop id="background-video">
-                <source src="../Assets/img/Home.mp4" type="video/mp4">
+                <source src="./unitop-php1/Assets/img/Home.mp4" type="video/mp4">
             </video>
             <div class="overlay"></div>
             <div class="content">
@@ -33,21 +33,21 @@ require __DIR__ . '/../Components/navbar.php';
         <section class="content1">
             <h1 data-aos="fade-up">DỊCH VỤ NỔI BẬT</h1>
                 <div class="Dichvunoibat">
-                <a href="../Modules/PPF.php">
+                <a href="./unitop-php1/Modules/PPF.php">
                 <div class="Dichvunoibat1" data-aos="fade-up" data-aos-delay="100">
-                    <img src="../Assets/img/PPF1.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/PPF1.jpg" alt="">
                     <h2>DÁN PPF</h2>
                 </div>
                 </a>
-                <a href="../Modules/Wrap.php">
+                <a href="./unitop-php1/Modules/Wrap.php">
                 <div class="Dichvunoibat1" data-aos="fade-up" data-aos-delay="200">
-                    <img src="../Assets/img/Wrap1.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Wrap1.jpg" alt="">
                     <h2>WRAP</h2>
                 </div>
                 </a>
-                <a href="../Modules/Wash.php">
+                <a href="./unitop-php1/Modules/Wash.php">
                 <div class="Dichvunoibat1" data-aos="fade-up" data-aos-delay="300">
-                    <img src="../Assets/img/Wash1.png" alt="">
+                    <img src="./unitop-php1/Assets/img/Wash1.png" alt="">
                     <h2>RỬA XE</h2>
                 </div>
                 </a>
@@ -68,37 +68,37 @@ require __DIR__ . '/../Components/navbar.php';
                     -Không gian khoang dịch vụ sạch sẽ, ngăn nắp <br>
                     -Chi phí dịch vụ với chất lượng phù hợp</p>
             </div>
-            <img src="../Assets/img/Vechungtoi.jpg" alt="" data-aos="fade-left">
+            <img src="./unitop-php1/Assets/img/Vechungtoi.jpg" alt="" data-aos="fade-left">
         </section>
 
         <section class="slider">
             <div class="slideritems">
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner5.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner5.jpg" alt="">
                 </div>
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner1.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner1.jpg" alt="">
                 </div>
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner2.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner2.jpg" alt="">
                 </div>
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner3.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner3.jpg" alt="">
                 </div>
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner4.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner4.jpg" alt="">
                 </div>
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner5.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner5.jpg" alt="">
                 </div>
                 <div class="slideritem">
-                    <img src="../Assets/img/Banner1.jpg" alt="">
+                    <img src="./unitop-php1/Assets/img/Banner1.jpg" alt="">
                 </div>
             </div>
         </section>
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    <script src="../Layouts/Home.js"></script>
+    <script src="./unitop-php1/Layouts/Home.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
@@ -110,5 +110,5 @@ require __DIR__ . '/../Components/navbar.php';
 </html>
 
 <?php
-require __DIR__ . '/../Components/footer.php';
+require __DIR__ . '/./unitop-php1/Components/footer.php';
 ?>
